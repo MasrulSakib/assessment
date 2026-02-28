@@ -104,7 +104,7 @@ export default function Navbar() {
                     MOBILE layout — always static, no scroll animation
                 ══════════════════════════════════════════════════════════ */}
                 <motion.div
-                    className="sm:hidden flex items-center relative"
+                    className="md:hidden flex items-center relative"
                     animate={{
                         backgroundColor: scrolled ? "rgba(8, 8, 14, 0.85)" : "rgba(0,0,0,0)",
                         borderColor: scrolled ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0)",
@@ -147,7 +147,7 @@ export default function Navbar() {
                     DESKTOP layout — morphing pill on scroll
                 ══════════════════════════════════════════════════════════ */}
                 <motion.div
-                    className="hidden sm:flex items-center relative"
+                    className="hidden md:flex items-center relative"
                     animate={{
                         borderRadius: scrolled ? 100 : 0,
                         backgroundColor: scrolled ? "rgba(8, 8, 14, 0.80)" : "rgba(0,0,0,0)",
@@ -180,7 +180,7 @@ export default function Navbar() {
                     {/* ── CENTER NAV LINKS ──────────────────────────────────── */}
                     {/* Desktop only */}
                     <motion.div
-                        className="hidden sm:flex items-center relative"
+                        className="hidden md:flex items-center relative"
                         animate={{
                             backgroundColor: scrolled ? "rgba(0,0,0,0)" : "rgba(255,255,255,0.04)",
                             borderColor: scrolled ? "rgba(0,0,0,0)" : "rgba(255,255,255,0.07)",
@@ -281,7 +281,7 @@ export default function Navbar() {
 
                     {/* ── RIGHT CTA ─────────────────────────────────────────── */}
                     <motion.div
-                        className="hidden sm:flex items-center flex-shrink-0"
+                        className="hidden md:flex items-center flex-shrink-0"
                         animate={{
                             gap: scrolled ? 2 : 8,
                         }}
