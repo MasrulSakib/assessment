@@ -103,43 +103,51 @@ export default function Navbar() {
                 {/* ══════════════════════════════════════════════════════════
                     MOBILE layout — always static, no scroll animation
                 ══════════════════════════════════════════════════════════ */}
-                <div
-                    className="lg:hidden flex items-center w-full px-4"
+                <motion.div
+                    className="sm:hidden flex items-center relative"
+                    animate={{
+                        backgroundColor: scrolled ? "rgba(8, 8, 14, 0.85)" : "rgba(0,0,0,0)",
+                        borderColor: scrolled ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0)",
+                        paddingLeft: 16,
+                        paddingRight: 16,
+                    }}
+                    transition={SPRING}
                     style={{
+                        width: scrolled ? "calc(100% - 32px)" : "100%",
                         height: "52px",
                         pointerEvents: "auto",
+                        borderRadius: scrolled ? "100px" : "0px",
+                        borderWidth: 1,
+                        borderStyle: "solid",
+                        backdropFilter: scrolled ? "blur(20px) saturate(1.8)" : "none",
+                        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(1.8)" : "none",
                     }}
                 >
                     <Link href="/" className="flex-shrink-0 flex items-center">
-                        <ChargeflowLogo color={scrolled ? "white" : "#08144F"} showText={true} />
+                        <ChargeflowLogo color={scrolled ? "white" : "#08144F"} showText={!scrolled} />
                     </Link>
                     <button
                         onClick={() => setMobileMenuOpen(true)}
                         className="flex items-center justify-center ml-auto"
                         aria-label="Open menu"
                         style={{
-                            width: "42px",
-                            height: "42px",
-                            borderRadius: "100px",
-                            background: scrolled ? "rgba(255,255,255,0.07)" : "rgba(8,20,79,0.06)",
-                            backdropFilter: "blur(12px)",
-                            WebkitBackdropFilter: "blur(12px)",
-                            border: scrolled ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(8,20,79,0.12)",
+                            width: "32px",
+                            height: "32px",
                         }}
                     >
-                        <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-                            <line x1="0" y1="1" x2="18" y2="1" stroke={scrolled ? "white" : "#08144F"} strokeWidth="1.8" strokeLinecap="round" />
-                            <line x1="0" y1="7" x2="18" y2="7" stroke={scrolled ? "white" : "#08144F"} strokeWidth="1.8" strokeLinecap="round" />
-                            <line x1="0" y1="13" x2="18" y2="13" stroke={scrolled ? "white" : "#08144F"} strokeWidth="1.8" strokeLinecap="round" />
+                        <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+                            <line x1="1" y1="1" x2="19" y2="1" stroke={scrolled ? "white" : "#08144F"} strokeWidth="1.8" strokeLinecap="round" />
+                            <line x1="1" y1="7" x2="19" y2="7" stroke={scrolled ? "white" : "#08144F"} strokeWidth="1.8" strokeLinecap="round" />
+                            <line x1="1" y1="13" x2="19" y2="13" stroke={scrolled ? "white" : "#08144F"} strokeWidth="1.8" strokeLinecap="round" />
                         </svg>
                     </button>
-                </div>
+                </motion.div>
 
                 {/* ══════════════════════════════════════════════════════════
                     DESKTOP layout — morphing pill on scroll
                 ══════════════════════════════════════════════════════════ */}
                 <motion.div
-                    className="hidden lg:flex items-center relative"
+                    className="hidden sm:flex items-center relative"
                     animate={{
                         borderRadius: scrolled ? 100 : 0,
                         backgroundColor: scrolled ? "rgba(8, 8, 14, 0.80)" : "rgba(0,0,0,0)",
@@ -172,14 +180,14 @@ export default function Navbar() {
                     {/* ── CENTER NAV LINKS ──────────────────────────────────── */}
                     {/* Desktop only */}
                     <motion.div
-                        className="hidden lg:flex items-center relative"
+                        className="hidden sm:flex items-center relative"
                         animate={{
                             backgroundColor: scrolled ? "rgba(0,0,0,0)" : "rgba(255,255,255,0.04)",
                             borderColor: scrolled ? "rgba(0,0,0,0)" : "rgba(255,255,255,0.07)",
-                            paddingTop: scrolled ? 0 : 4,
-                            paddingBottom: scrolled ? 0 : 4,
-                            paddingLeft: scrolled ? 4 : 16,
-                            paddingRight: scrolled ? 4 : 16,
+                            paddingTop: scrolled ? 0 : 2,
+                            paddingBottom: scrolled ? 0 : 2,
+                            paddingLeft: scrolled ? 4 : 8,
+                            paddingRight: scrolled ? 4 : 8,
                         }}
                         transition={SPRING}
                         style={{
@@ -200,7 +208,7 @@ export default function Navbar() {
                                 >
                                     <a
                                         href={link.href || "#"}
-                                        className={`inline-flex items-center px-3.5 py-2 text-[11px] font-semibold tracking-[0.07em] uppercase whitespace-nowrap rounded-full transition-colors duration-150 ${isActive
+                                        className={`inline-flex items-center px-1.5 lg:px-3.5 py-1.5 lg:py-2 text-[9px] lg:text-[11px] font-semibold tracking-wider lg:tracking-[0.07em] uppercase whitespace-nowrap rounded-full transition-colors duration-150 ${isActive
                                             ? scrolled ? "bg-white/[0.10] text-white" : "bg-[#08144F]/[0.08] text-[#08144F]"
                                             : scrolled
                                                 ? "text-white/55 hover:bg-white/[0.06] hover:text-white"
@@ -273,9 +281,9 @@ export default function Navbar() {
 
                     {/* ── RIGHT CTA ─────────────────────────────────────────── */}
                     <motion.div
-                        className="hidden lg:flex items-center flex-shrink-0"
+                        className="hidden sm:flex items-center flex-shrink-0"
                         animate={{
-                            gap: scrolled ? 2 : 12,
+                            gap: scrolled ? 2 : 8,
                         }}
                         transition={SPRING}
                     >
@@ -290,7 +298,7 @@ export default function Navbar() {
                         >
                             <Link
                                 href="#"
-                                className={`flex items-center text-[12px] font-semibold uppercase tracking-wider transition-colors whitespace-nowrap ${scrolled ? "text-white/60 hover:text-white" : "text-[#08144F]/60 hover:text-[#08144F]"
+                                className={`flex items-center text-[9px] lg:text-[12px] font-semibold uppercase tracking-wider transition-colors whitespace-nowrap ${scrolled ? "text-white/60 hover:text-white" : "text-[#08144F]/60 hover:text-[#08144F]"
                                     }`}
                             >
                                 Sign In
@@ -299,17 +307,17 @@ export default function Navbar() {
                         </motion.div>
                         <motion.div
                             animate={{
-                                paddingTop: scrolled ? 8 : 10,
-                                paddingBottom: scrolled ? 8 : 10,
-                                paddingLeft: scrolled ? 16 : 20,
-                                paddingRight: scrolled ? 16 : 20,
+                                paddingTop: scrolled ? 6 : 8,
+                                paddingBottom: scrolled ? 6 : 8,
+                                paddingLeft: scrolled ? 12 : 16,
+                                paddingRight: scrolled ? 12 : 16,
                             }}
                             transition={SPRING}
                             style={{ borderRadius: 9999, background: "#3448FF" }}
                         >
                             <Link
                                 href="#"
-                                className="flex items-center text-[12px] font-semibold uppercase tracking-wider text-white hover:brightness-110 whitespace-nowrap"
+                                className="flex items-center text-[9px] lg:text-[12px] font-semibold uppercase tracking-wider text-white hover:brightness-110 whitespace-nowrap"
                             >
                                 {scrolled ? "Schedule a Demo" : "Sign Up"}
                                 <ArrowUpIcon className="rotate-45 size-4" />
