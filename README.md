@@ -12,10 +12,13 @@ This project is a high-fidelity replication of key components and animations fro
 ## Screenshots
 
 ### Scrolled Navbar
-![Scrolled Navbar](/screenshots/navbar-scrolled.png)
+![Scrolled Navbar](./public/screenshots/navbar-scrolled.png)
+
+### Unscrolled Navbar
+![Unscrolled Navbar](./public/screenshots/navbar-not-scrolled.png)
 
 ### Dropdown Menu
-![Dropdown Menu](/screenshots/dropdown-menu.png)
+![Dropdown Menu](./public/screenshots/dropdown-menu.png)
 
 ## Getting Started
 
