@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Brand colors */
+  --color-cf-blue: #3448FF;
+  --color-cf-blue-hover: #2a3ad4;
+  --color-cf-dark: #0a0e1a;
+  --color-cf-dark-card: #141828;
+  --color-cf-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(52, 72, 255, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 72, 255, 0.6);
+}
+
+/* Diamond separator for mobile menu */
+.diamond-separator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.diamond-separator::before,
+.diamond-separator::after {
+  content: '';
+  flex: 1;
+  border-top: 1px dashed #d1d5db;
+}
+
+.diamond-separator .diamond {
+  width: 6px;
+  height: 6px;
+  background: #d1d5db;
+  transform: rotate(45deg);
+  margin: 0 -1px;
+  flex-shrink: 0;
+}
+
+/* Float animation for blue diamonds in hero */
+@keyframes float {
+  0% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(45deg) translate(4px, -6px);
+  }
+}
